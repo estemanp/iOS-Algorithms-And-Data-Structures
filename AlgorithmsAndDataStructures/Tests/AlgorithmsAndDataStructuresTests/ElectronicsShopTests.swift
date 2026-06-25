@@ -42,4 +42,45 @@ final class ElectronicsShopTests: XCTestCase {
         // Assert: 40 + 20 = 60 or 50 + 10 = 60.
         XCTAssertEqual(result, 60, "Should return the exact budget amount if there is a perfect combination")
     }
+    
+    // MARK: - Optimized (Two Pointers) Tests
+    
+    func test_getMoneySpentOptimized_withValidBudget_returnsMaximumSpent() {
+        // Arrange
+        let budget = 10
+        let keyboards = [3, 1]
+        let drives = [5, 2, 8]
+        
+        // Act
+        let result = getMoneySpentOptimized(keyboards: keyboards, drives: drives, b: budget)
+        
+        // Assert
+        XCTAssertEqual(result, 9, "Optimized approach should return 9 as the maximum possible amount spent")
+    }
+    
+    func test_getMoneySpentOptimized_withInsufficientBudget_returnsMinusOne() {
+        // Arrange
+        let budget = 5
+        let keyboards = [4]
+        let drives = [5]
+        
+        // Act
+        let result = getMoneySpentOptimized(keyboards: keyboards, drives: drives, b: budget)
+        
+        // Assert
+        XCTAssertEqual(result, -1, "Optimized approach should return -1 when budget is exceeded")
+    }
+    
+    func test_getMoneySpentOptimized_withExactBudgetMatch_returnsBudget() {
+        // Arrange
+        let budget = 60
+        let keyboards = [40, 50, 60]
+        let drives = [5, 8, 10, 20]
+        
+        // Act
+        let result = getMoneySpentOptimized(keyboards: keyboards, drives: drives, b: budget)
+        
+        // Assert
+        XCTAssertEqual(result, 60, "Optimized approach should return the exact budget amount if a perfect combination exists")
+    }
 }
