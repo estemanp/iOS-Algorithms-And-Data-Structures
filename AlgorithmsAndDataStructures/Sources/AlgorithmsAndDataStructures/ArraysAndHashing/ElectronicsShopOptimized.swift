@@ -2,6 +2,7 @@
  -------------------------------------------------------------------------
  Problem: Electronics Shop (Optimized Two Pointers Approach)
  Platform: HackerRank
+ Link: https://www.hackerrank.com/challenges/electronics-shop/problem
  
  Description:
  Finds the maximum amount of money that can be spent using a Two Pointers
